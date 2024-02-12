@@ -5,73 +5,74 @@
   <link rel="stylesheet" href="style/app.css">
 </head>
 <body>
-    <div id="app">
-        {{ message }}
-        <br>
-        <div v-bind:class="vueClass">This element is bound to the "vueBg" class.</div>
-
-        <p v-if="typewriterCount>3">
-            In stock
-        </p>
-          
-        <p v-else-if="typewriterCount>0">
-            Very few left!
-        </p>
-          
-        <p v-else>
-            Not in stock
-        </p>
-
-        <div class="show-div" v-show="lightOn">This div tag can be hidden</div>
-
-        <div class="v-for">
-            <img v-for="x in manyFoods" v-bind:src="x">
-        </div>
-
-        <div class="v-for">
-            <figure v-for="(x, idx) in manyFoodsObj" v-bind:class="{selClass: x.sel}">
-                <img v-bind:src="x.url" 
-                @click="select(idx)">
-                <figcaption>{{ x.name }}</figcaption>
-            </figure>
-        </div>
-
-        <div id="bulb">
-          <div id="light">
-            <div v-show="lightOn"></div>
-            <img src="img/img_lightBulb.svg">
-          </div>
-          <button @:click=" lightOn =! lightOn ">Switch light</button>
-        </div>
-
-        
-        <div v-on:mousemove=" colorVal = Math.floor(Math.random()*360) " v-bind:style=" {backgroundColor: 'hsl('+colorVal+', 80%, 60%)'} " style="width: 200px; height: 80px;"></div>
-        <p style="width: 40%;"><span>backgroundColor: hsl(<strong>{{ colorVal }}</strong>, 80%, 60%)</span></p>
-
-        <div class="form">
-          <form>
-            <p>
-              Important item?
-              <label v-bind:class="{lblActive: chbxVal}">
-                 <input type="checkbox" v-model="chbxVal"> 
-                 {{ isImportant }}
-              </label>
-            </p>
-
-            <input type="range" min="0" max="100" step="1" v-model="rangeVal">
-            <p><code>{{ rangeVal }}</code></p> 
-          </form>
-        </div>
-        <br>
-        <div class="show-div">
-          <div v-on:click="updatePos"></div>
-          <p><code>{{ xDiff }}</code></p>
-        </div>
-    </div>
+    <div id="app"></div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <script>
         const app = Vue.createApp({
+            template: `
+                {{ message }}
+                <br>
+                <div v-bind:class="vueClass">This element is bound to the "vueBg" class.</div>
+
+                <p v-if="typewriterCount>3">
+                    In stock
+                </p>
+                  
+                <p v-else-if="typewriterCount>0">
+                    Very few left!
+                </p>
+                  
+                <p v-else>
+                    Not in stock
+                </p>
+
+                <div class="show-div" v-show="lightOn">This div tag can be hidden</div>
+
+                <div class="v-for">
+                    <img v-for="x in manyFoods" v-bind:src="x">
+                </div>
+
+                <div class="v-for">
+                    <figure v-for="(x, idx) in manyFoodsObj" v-bind:class="{selClass: x.sel}">
+                        <img v-bind:src="x.url" 
+                        @click="select(idx)">
+                        <figcaption>{{ x.name }}</figcaption>
+                    </figure>
+                </div>
+
+                <div id="bulb">
+                  <div id="light">
+                    <div v-show="lightOn"></div>
+                    <img src="img/img_lightBulb.svg">
+                  </div>
+                  <button @:click=" lightOn =! lightOn ">Switch light</button>
+                </div>
+
+                
+                <div v-on:mousemove=" colorVal = Math.floor(Math.random()*360) " v-bind:style=" {backgroundColor: 'hsl('+colorVal+', 80%, 60%)'} " style="width: 200px; height: 80px;"></div>
+                <p style="width: 40%;"><span>backgroundColor: hsl(<strong>{{ colorVal }}</strong>, 80%, 60%)</span></p>
+
+                <div class="form">
+                  <form>
+                    <p>
+                      Important item?
+                      <label v-bind:class="{lblActive: chbxVal}">
+                        <input type="checkbox" v-model="chbxVal"> 
+                        {{ isImportant }}
+                      </label>
+                    </p>
+
+                    <input type="range" min="0" max="100" step="1" v-model="rangeVal">
+                    <p><code>{{ rangeVal }}</code></p> 
+                  </form>
+                </div>
+                <br>
+                <div class="show-div">
+                  <div v-on:click="updatePos"></div>
+                  <p><code>{{ xDiff }}</code></p>
+                </div>
+            `,
             data() {
               return {
                   message: "Hello Vue!",
