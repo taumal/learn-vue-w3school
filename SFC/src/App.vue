@@ -2,12 +2,15 @@
   <h1>Food</h1>
   <p>The user can now change the favorite status of the food items with the use of
     a new data property initialized by the 'is-favorite' prop value.</p>
+  <button class="btn" @click="removeFood">Remove</button>
   <div id="wrapper">
     <food-item
         v-for="x in foods"
+        :key = "x.name"
         :food-name="x.name"
         :food-desc="x.desc"
         :is-favorite="x.favorite"
+        @toggle-favorite="markAsFavourite"
     />
   </div>
 </template>
@@ -35,6 +38,17 @@ export default {
           favorite: false }
       ]
     };
+  },
+  methods: {
+    removeFood() {
+      this.foods.splice(1, 1)
+    },
+    markAsFavourite(itemName) {
+      const getFood = this.foods.find(
+          food => food.name === itemName
+      )
+      getFood.favorite = !getFood.favorite
+    }
   }
 };
 </script>

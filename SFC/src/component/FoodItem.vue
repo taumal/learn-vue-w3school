@@ -2,7 +2,7 @@
   <div>
     <h2>
       {{ foodName }}
-      <img src="/img_quality.svg" v-show="foodIsFavorite">
+      <img src="/img_quality.svg" v-show="isFavorite">
     </h2>
     <p>{{ foodDesc }}</p>
     <button class="btn-jetbrains" @:click="toggleFavorite">Favorite</button>
@@ -35,14 +35,16 @@ export default {
   //     default: false
   //   }
   // },
+  emits: ['toggle-favorite'],
   data() {
     return {
-      foodIsFavorite: this.isFavorite
+      // foodIsFavorite: this.isFavorite
     }
   },
   methods: {
     toggleFavorite() {
-      this.foodIsFavorite = !this.foodIsFavorite;
+      // this.foodIsFavorite = !this.foodIsFavorite;
+      this.$emit('toggle-favorite', this.foodName);
     }
   }
 };
