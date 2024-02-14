@@ -13,6 +13,19 @@
         @toggle-favorite="markAsFavourite"
     />
   </div>
+
+  <div class="todo-wrapper">
+    <h3 class="todo-header">ToDo List</h3>
+    <ul class="todo-list">
+      <to-do
+          v-for="i in items"
+          :key = "i"
+          :item-name = "i"
+      />
+    </ul>
+    <input v-model="newItem" class="todo-input" @keydown.enter="addItem">
+    <button class="btn-jetbrains" @click="addItem">Add</button>
+  </div>
 </template>
 
 <script>
@@ -36,7 +49,9 @@ export default {
         { name: 'Cake',
           desc: 'Cake is something sweet that tastes good.',
           favorite: false }
-      ]
+      ],
+      newItem: '',
+      items: ['Buy Apples', 'Make Pizza', 'Go To Bazaar']
     };
   },
   methods: {
@@ -48,6 +63,10 @@ export default {
           food => food.name === itemName
       )
       getFood.favorite = !getFood.favorite
+    },
+    addItem() {
+      this.items.push(this.newItem)
+      this.newItem = ''
     }
   }
 };
@@ -69,5 +88,44 @@ export default {
 }
 #wrapper > div:hover {
   cursor: pointer;
+}
+.todo-wrapper {
+  max-width: 600px;
+  margin: 20px 10px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.todo-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.todo-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+.todo-list {
+  list-style-type: none;
+  padding: 0;
+}
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+.todo-item input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.todo-item label {
+  flex-grow: 1;
+  font-size: 16px;
 }
 </style>
