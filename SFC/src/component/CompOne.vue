@@ -3,12 +3,14 @@
 </template>
 
 <script>
-
+export default {
+  name: "CompOne"
+}
 </script>
 
 <style scoped>
 p {
-  background-color: #ff4a32;
+  background-color: #ff604b;
   width: 150px;
   color: white;
 }

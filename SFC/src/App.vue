@@ -27,11 +27,24 @@
     <button class="btn-jetbrains" @click="addItem">Add</button>
   </div>
 
-  <div class="wrapper">
+  <div class="div-border-dash">
     <h3>Global Styling</h3>
     <p>This p-tag belongs to 'App.vue'</p>
     <comp-one />
     <comp-two />
+  </div>
+  <div class="div-border-dash">
+    <h3>Global Components</h3>
+    <p>App.vue</p>
+    <p>The CompOne.vue component is used inside both App.vue and CompTwo.vue.</p>
+    <global-component-one/>
+    <global-component-two/>
+  </div>
+  <div class="div-border-dash">
+    <h3>Local Component</h3>
+    <p>The LocalComponent.vue component is a local component and can only be used inside App.vue.</p>
+    <global-component-one />
+    <global-component-three />
   </div>
 </template>
 
@@ -134,5 +147,26 @@ export default {
 .todo-item label {
   flex-grow: 1;
   font-size: 16px;
+}
+
+p {
+  width: 200px;
+}
+.div-border-dash {
+  border: dashed black 1px;
+  max-width: 300px;
+  margin: 20px 10px;
+  padding: 20px;
+  border-radius: 8px;
+}
+.compOneDiv{
+  margin: 10px;
+  padding: 10px;
+  background-color: #ff604b;
+}
+.compTwoDiv {
+  margin: 10px;
+  padding: 10px;
+  background-color: lightgreen;
 }
 </style>
