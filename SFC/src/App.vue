@@ -14,7 +14,7 @@
     />
   </div>
 
-  <div class="todo-wrapper">
+  <div class="wrapper">
     <h3 class="todo-header">ToDo List</h3>
     <ul class="todo-list">
       <to-do
@@ -25,6 +25,13 @@
     </ul>
     <input v-model="newItem" class="todo-input" @keydown.enter="addItem">
     <button class="btn-jetbrains" @click="addItem">Add</button>
+  </div>
+
+  <div class="wrapper">
+    <h3>Global Styling</h3>
+    <p>This p-tag belongs to 'App.vue'</p>
+    <comp-one />
+    <comp-two />
   </div>
 </template>
 
@@ -89,7 +96,7 @@ export default {
 #wrapper > div:hover {
   cursor: pointer;
 }
-.todo-wrapper {
+.wrapper {
   max-width: 600px;
   margin: 20px 10px;
   padding: 20px;
