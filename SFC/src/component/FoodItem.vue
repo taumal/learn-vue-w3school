@@ -50,7 +50,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .btn-jetbrains {
   padding: 10px 20px;
   background-color: #3e0d90;
@@ -81,27 +81,5 @@ export default {
 img {
   height: 1.5em;
   float: right;
-}
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  color: #fff;
-  border: none;
-  border-radius: 25px; /* Rounded corners */
-  cursor: pointer;
-  background: linear-gradient(45deg, #fd3ab7, #930ffc, #006cfc); /* Gradient background */
-  //background-image: linear-gradient(45deg, #3d0d8f 24.89%, #4e24c3 41.03%, #6542ff 55.67%, #ac42ff 76.24%, #f74792 85.67%, #fec723 102.51%);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow */
-  -webkit-transition:  transform 0.2s, box-shadow 1s, background 1s;
-  transition: transform 1s, box-shadow 1s, background 1s;
-}
-.btn:hover {
-  background: linear-gradient(45deg, #006cfc, #930ffc, #fd3ab7); /* Darker gradient background */
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Larger shadow */
-  transform: translateY(-2px); /* Move button up slightly */
 }
 </style>
