@@ -83,6 +83,18 @@
       <p>This goes into the default slot</p>
     </named-slot>
   </div>
+
+  <div class="div-border-dash">
+    <h1>Scoped Slots</h1>
+    <p>App.vue controls how local data from the scoped slot is rendered.</p>
+    <scoped-slot v-slot="food">
+      <hr>
+      <h2>{{ food.foodName }} <img class="scoped-slot-img" :src=food.foodUrl></h2>
+      <p class="greenP">{{ food.foodDesc }}</p>
+      <p>{{ food.staticText }}</p>
+      <p>{{ food.dynamicText }}</p>
+    </scoped-slot>
+  </div>
 </template>
 
 <script>
@@ -127,8 +139,10 @@ export default {
       getFood.favorite = !getFood.favorite
     },
     addItem() {
-      this.items.push(this.newItem)
-      this.newItem = ''
+      if (this.newItem) {
+        this.items.push(this.newItem)
+        this.newItem = ''
+      }
     }
   }
 };
@@ -247,5 +261,10 @@ p {
   margin: 10px;
   padding: 10px;
   background-color: lightgreen;
+}
+.scoped-slot-img {
+  float: right;
+  height: 70px;
+  margin-left: 10px;
 }
 </style>

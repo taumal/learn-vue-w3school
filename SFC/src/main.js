@@ -11,6 +11,7 @@ import GlobalComponentThree from "@/component/GlobalComponentThree.vue";
 import SlotComp from "@/component/SlotComp.vue";
 import SlotCompTwo from "@/component/SlotCompTwo.vue";
 import NamedSlot from "@/component/NamedSlot.vue";
+import ScopedSlot from "@/component/ScopedSlot.vue";
 
 const app = createApp(App)
 app.component('food-item', FoodItem)
@@ -23,4 +24,5 @@ app.component('global-component-three', GlobalComponentThree)
 app.component('slot-comp', SlotComp)
 app.component('slot-comp-two', SlotCompTwo)
 app.component('named-slot', NamedSlot)
+app.component('scoped-slot', ScopedSlot)
 app.mount('#app')
