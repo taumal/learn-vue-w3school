@@ -70,6 +70,19 @@
       <h3>Footer</h3>
     </slot-comp-two>
   </footer>
+
+  <div class="wrapper">
+    <h1>App.vue</h1>
+    <p>The component has two div tags with one slot in each.</p>
+    <named-slot>
+      <h4>Default Slot!</h4>
+      <template #bottomSlot>
+        <h4>Bottom Slot!</h4>
+        <p>This p tag and the h4 tag above are directed to the bottom slot with the v-slot directive used on the template tag.</p>
+      </template>
+      <p>This goes into the default slot</p>
+    </named-slot>
+  </div>
 </template>
 
 <script>

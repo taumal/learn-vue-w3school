@@ -10,6 +10,7 @@ import GlobalComponentTwo from "@/component/GlobalComponentTwo.vue";
 import GlobalComponentThree from "@/component/GlobalComponentThree.vue";
 import SlotComp from "@/component/SlotComp.vue";
 import SlotCompTwo from "@/component/SlotCompTwo.vue";
+import NamedSlot from "@/component/NamedSlot.vue";
 
 const app = createApp(App)
 app.component('food-item', FoodItem)
@@ -21,4 +22,5 @@ app.component('global-component-two', GlobalComponentTwo)
 app.component('global-component-three', GlobalComponentThree)
 app.component('slot-comp', SlotComp)
 app.component('slot-comp-two', SlotCompTwo)
+app.component('named-slot', NamedSlot)
 app.mount('#app')
